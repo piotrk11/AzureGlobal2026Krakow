@@ -47,7 +47,7 @@ module "mssql_server" {
     size                 = 10
     sku                  = S0
     #storage_account_type = string
-    collation            = SQL_Latin1_General_CP1_CI_AS
+    collation            = "SQL_Latin1_General_CP1_CI_AS"
   }
 }
 
