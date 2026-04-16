@@ -43,3 +43,18 @@ module "mssql_server" {
   sql_server_name = "mssqlname1"
   sql_server_version = "12.0"  
 }
+
+module "service_plan" {
+  source = "git::https://github.com/pchylak/global_azure_2026_ccoe.git?ref=service_plan/v2.0.0"
+  # also any inputs for the module (see below)
+  app_service_plan_name = "gasplanuser12"
+  resource_group = {
+    name = "rg-user12"
+    location = "polandcentral"    
+  }
+  sku_name = "B1"
+  tags = {
+     name = "service_plan_b1"
+  }
+ 
+}
