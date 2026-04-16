@@ -92,3 +92,13 @@ module "application_insights" {
     location = "polandcentral"    
   }
 }
+
+module "container_registry" {
+  source = "git::https://github.com/pchylak/global_azure_2026_ccoe.git?ref=container_registry/v1.0.0"
+  # also any inputs for the module (see below)
+  container_registry_name = "container-registry-name-user12"
+  resource_group = {
+    name = "rg-user12"
+    location = "polandcentral"    
+  }
+}
