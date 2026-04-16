@@ -71,6 +71,10 @@ module "managed_identity" {
 module "app_service" {
   source = "git::https://github.com/pchylak/global_azure_2026_ccoe.git?ref=app_service/v1.0.0"
   # also any inputs for the module (see below)
+  resource_group = {
+    name = "rg-user12"
+    location = "polandcentral"    
+  }
   app_service_name = "app_service_name_user12"
   app_service_plan_id = "gasplanuser12"
   app_settings = {}
