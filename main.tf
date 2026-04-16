@@ -18,3 +18,13 @@ terraform {
     key                  = "terraform.tfstate"
   }
 }
+
+module "keyvault" {
+  source = "git::https://github.com/pchylak/global_azure_2026_ccoe.git?ref=keyvault/v1.0.0"
+  # also any inputs for the module (see below)
+  keyvault_name = "gakvuser12"
+  resource_group = "gastuser12"
+  network_acls = {
+  }
+
+}
