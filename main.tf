@@ -42,6 +42,13 @@ module "mssql_server" {
   sql_server_admin = "mssqladmin1"
   sql_server_name = "mssqlname1"
   sql_server_version = "12.0"  
+  databases = {
+    name                 = "user12-db1"
+    size                 = 10
+    sku                  = S0
+    #storage_account_type = string
+    collation            = SQL_Latin1_General_CP1_CI_AS
+  }
 }
 
 module "service_plan" {
