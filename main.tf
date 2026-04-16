@@ -76,7 +76,7 @@ module "app_service" {
     location = "polandcentral"    
   }
   app_service_name = "app-service-name-user12"
-  app_service_plan_id = "gasplanuser12"
+  app_service_plan_id = module.service_plan.app_service_plan.id
   app_settings = {}
   identity_client_id = module.managed_identity.managed_identity_client_id
   identity_id = module.managed_identity.managed_identity_id
