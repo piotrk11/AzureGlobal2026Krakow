@@ -55,6 +55,26 @@ module "service_plan" {
   sku_name = "B1"
   tags = {
      name = "service_plan_b1"
-  }
- 
+  } 
 }
+
+module "managed_identity" {
+  source = "git::https://github.com/pchylak/global_azure_2026_ccoe.git?ref=managed_identity/v1.0.0"
+  # also any inputs for the module (see below)
+  name = "mi-app-user12"
+  resource_group = {
+    name = "rg-user12"
+    location = "polandcentral"    
+  }
+}
+
+module "app_service" {
+  source = "git::https://github.com/pchylak/global_azure_2026_ccoe.git?ref=app_service/v1.0.0"
+  # also any inputs for the module (see below)
+  app_service_name = "app_service_name_user12"
+  app_service_plan_id = "gasplanuser12"
+  app_settings = {}
+  identity_client_id = module.managed_identity.managed_identity_client_id
+  identity_id = module.managed_identity.managed_identity_id
+}
+
