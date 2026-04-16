@@ -29,6 +29,7 @@ module "keyvault" {
   }
 
   network_acls = {
+    bypass = "AzureServices"
   }
 
 }
