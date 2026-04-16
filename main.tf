@@ -45,7 +45,7 @@ module "mssql_server" {
   databases = {
     name                 = "user12-db1"
     size                 = 10
-    sku                  = S0
+    sku                  = "S0"
     #storage_account_type = string
     collation            = "SQL_Latin1_General_CP1_CI_AS"
   }
