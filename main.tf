@@ -82,3 +82,13 @@ module "app_service" {
   identity_id = module.managed_identity.managed_identity_id
 }
 
+module "application_insights" {
+  source = "git::https://github.com/pchylak/global_azure_2026_ccoe.git?ref=application_insights/v1.0.0"
+  # also any inputs for the module (see below)
+  application_insights_name = "application-insights-name-user12"
+  log_analytics_name = "log-analytics-name-user12" 
+  resource_group = {
+    name = "rg-user12"
+    location = "polandcentral"    
+  }
+}
